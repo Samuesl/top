@@ -13,7 +13,7 @@
     <!-- Make sure you put this AFTER Leaflet's CSS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-
+        <script defer src="main.js"></script>
 </head>
 
 <body>
@@ -72,17 +72,6 @@
             <a href="https://Gregorysprenger2001.github.io/top/">nächste Etappe</a>
         </nav>
     </footer>
-    <script>
-        var map = L.map('map').setView([42.35, -71.05], 13);
-        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        }).addTo(map);
-        <!--Koordinate um 100el erweitert, damit der Marker in der Mitte sitzt-->
-        var marker = L.marker([42.351, -71.051]).addTo(map);
-        marker.bindPopup("<b>Hallo ich bin Boston!</b><br>Der schönste Ort von Samuesl!").openPopup();
-
-    </script>
     
 </body>
 
