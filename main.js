@@ -216,7 +216,17 @@ const STOPS = [
 //Karte inititlaisieren
 let map = L.map('map');
 
+//Layercontrol
+L.control.layers({
+    "OpenStreetMap.Mapnik": L.tileLayer.provider('OpenStreetMap.Mapnik'),
+    "OpenTopoMap": L.tileLayer.provider('OpenTopoMap').addTo(map),
+    "Esri.WorldImagery": L.tileLayer.provider('Esri.WorldImagery'),
+}).addTo(map);
 
+//Massstab
+L.control.scale({
+    imperial: false,
+}).addTo(map);
 
 // loop ueber Etappen
 for (let i = 0; i < STOPS.length; i++) {
