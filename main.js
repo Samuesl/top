@@ -216,11 +216,6 @@ const STOPS = [
 //Karte inititlaisieren
 let map = L.map('map');
 
-//Hintergrundkarte definieren
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
 
 
 // loop ueber Etappen
