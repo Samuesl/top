@@ -216,11 +216,19 @@ const STOPS = [
 //Karte inititlaisieren
 let map = L.map('map');
 
+//Overlays definieren
+let overlays = {
+   marker: L.featureGroup().addTo(map),
+   
+}
+
 //Layercontrol
 L.control.layers({
-    "OpenStreetMap.Mapnik": L.tileLayer.provider('OpenStreetMap.Mapnik'),
-    "OpenTopoMap": L.tileLayer.provider('OpenTopoMap').addTo(map),
+    "OpenStreetMap.Mapnik": L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(map),
+    "OpenTopoMap": L.tileLayer.provider('OpenTopoMap'),
     "Esri.WorldImagery": L.tileLayer.provider('Esri.WorldImagery'),
+}, {
+    "Etappen": overlays.marker,
 }).addTo(map);
 
 //Massstab
@@ -234,7 +242,8 @@ for (let i = 0; i < STOPS.length; i++) {
 
     //Marker zeichnen
     let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
-
+    marker.addTo(overlays.marker)
+    
     //Popup definieren 
     marker.bindPopup(`
     <h2>${STOPS[i].title}</h2>
